@@ -17,144 +17,90 @@ function search(){
     }
 }
 // 轮播图
-function banner(){
-    // 1.自动地滚动起来 （定时器，过渡）
-    // 2.点随之滚动起来  （改变当前点元素的样式）
-    // 3.图片滚动 （touch 事件）
-    // 4.当不超过一定的滑动距离的时候吸附回去，定位回去（一定的距离1/3屏幕宽度 过渡）
-    // 5.当超过了一定距离的时候滚动到上一张或下一张（一定的距离1/3屏幕宽度 过渡）
-    //获取到dom对象
-    //banner
-    var banner=document.querySelector('.hm_banner');
-    //屏幕的宽度
-    var w=banner.offsetWidth;
-    //图片盒子
-    var imageBox=banner.querySelector('ul:first-child');
-    //只支持有效的css选择器
-    //点盒子
-    var pointBox=banner.querySelector('ul:last-child');
-    //所有的点
-    var pointBox=banner.querySelector('li');
-    //添加过渡
-    var addTransition=function(){
-        imageBox.style.webkitTransition="all .2s";
-        imageBox.style.transition="all .2s";
-    };
-    //删除过渡
-    var addTransition=function(){
-        imageBox.style.webkitTransition='none';
-        imageBox.style.transition="none";
-    };
-    //改变位子
-    var setTranslateX=function(translateX){
-        imageBox.style.webkitTransform="translateX("+translateX+"px)";
-        imageBox.style.transform="translateX("+translateX+"px)";
-    };
-    //1.自动地滚动起来（定时器，过渡）
-    var index=1;
-    var timer =setInterval(function(){
-        //箱子滚动
-        index ++;
-        //定位：用过渡来做定位的，这样才有动画
-        //加过渡
-        addTransition();
-        //改变位子
-        setTranslateX(-index*w);
-    },4000);
-    //绑定一个过渡结束事件
-    itcast.transitionEnd(imageBox,function(){
-        console.log('transitionEnd');
-        if(index>=9){
-            index=1;
-            //做定位
-            //加过渡
-            removeTransition();
-            //改变位子
-            setTranslateX(-index*w);
-        }else if(index <=0){
-           index=8;
-           //加过渡
-           removeTransition();
-           //改变位子
-           setTranslateX(-index*w);
-        }
-        //index 1~8 索引范围
-        //point 0~7
-        setPoint();
-    })
-    //2.点随之滚动起来（改变当前点元素的样式）
-    var setPoint = function(){
-        //把所有点的样式清除
-        for(var i=0; i<points.length;i++){
-            points[i].className="";
-        }
-        points[index-1].className="now";
+var img4=document.querySelector('#images>a:nth-child(4)');
+var img4=document.getElementById('images').children[4];
+var img4=document.getElementsByClassName('hiddenImg')[3];
+var img4=document.getElementsByTagName('a')[4];
+var imagesA=document.getElementById("images").children;
+
+
+
+var imagesA=document.getElementById('images').children;
+console.log(imagesA);
+
+var txtList=document.querySelectorAll(".txtItem");
+
+var currentNo=0;//当前显示的图片编号
+
+//利用计时器间隔1s，显示1张图像，其余图像隐藏
+function changeImg(){
+        //获取图片/文本总数量
+          var nodeLength=txtList.length
+        //排他原理1，将同类设置为统一状态，
+    for(var i=0;i<imagesA.length;i++){
+        imagesA[i].className="hiddenImg";
+        txtList[i].className="txtItem normalColor";
     }
-    //3.图片滑动（touch事件）
-    var startX=0;
-    var moveX=0;
-    var distanceX=0;
-    var isMove=false;
+    //再突出自己，当前图片透明度为一
+    imagesA[currentNo].className="displayImg";
+    txtList[currentNo].className="txtItem heighlightColor";
+}
+function leftImg(){
+    if(currentNo>0){currentNo--;}
+    else{
+        currentNo=7;
+    }
+}
+function rightImg(){
+    if(currentNo<7){currentNo++;}
+    else{
+        currentNo=0;
+    }
+}
+//网页加载后启动定时器
+var timer=window.setInterval(rightImgGo,1000);
+var imagesG=document.querySelector('#images');
+console.log(imagesG);
+//鼠标移入后重设定时器
+function starChange(){
+    timer=window.setInterval(rightImgGo,1000);
+}
+//鼠标移出后移除定时器
+function stopChange(){
+    window.clearInterval(timer);
+}
+//获取sliderDIV以注册移入移出事件
+var sliderDIV=document.querySelector(".slider");
+//为sliderDIV注册移入移出事件
+sliderDIV.addEventListener('mouseover',stopChange);
+sliderDIV.addEventListener('mouseout',starChange);
 
-    imageBox.addEventListener('touchstart',function(e){
-        //清除定时器
-        clearInterval(timer);
-        startX=e.touches[0].clientX;
-    });
-    imageBox.addEventListener('touchmove',function(e){
-         isMove=true;
-         moveX=e.touches[0].clientX;
-         distanceX=moveX-startX;
-         //算出当前图片盒子需要的定位位子
-         console.log(distanceX);
-         //将要去做定位
-         var currX=-index*w+distanceX;
-          //删除过渡
-          removeTransition();
-          //改变位子
-          setTranslateX(currX);
-    });
-    imageBox.addEventListener('touchend',function(e){
-        //当超过一定距离的时候
-        if(isMove&&(Math.abs(distanceX)>w/3)){
-            if(distanceX>0){
-                index--;
-            }else{
-                index++;
-            }
-            addTransition();
-            setTranslateX(-index*w);
-        }
-        else{
-            addTransition();
-            setTranslateX(-index*w);
-        }
-        //重置
-        startX=0;
-        moveX=0;
-        distanceX=0;
-        isMove=false;
-        clearInterval(timer);
-        timer=setInterval(function(){
-            index++;
-            addTransition();
-            setTranslateX(-index*w);
-        },4000);
-    });
+//为所有文本Li注册鼠标移入事件，移入之后，当前li高度，跳转到对应图片
+for(var i=0;i<txtList.length;i++){
+    txtList[i].addEventListener('mouseover',gotoImg);
+    
+    //添加自定义属性no 记录当前li的编号
+    txtList[i].no=i;
+}
+function gotoImg(){
+                     console.log(this.no);
+                     //获得当前显示图像的编号/文本的编号 this是当前事件发生的本体
+                     currentNo=this.no;
+                     //调用更换图片/文本函数
+                     changeImg();
+}
 
+var leftButton=document.querySelector('.leftButton');
+var rightButton=document.querySelector('.rightButton');
 
+leftButton.addEventListener('click',leftImgGo);
+rightButton.addEventListener('click',rightImgGo);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+function leftImgGo(){
+    leftImg();
+    changeImg();
+}
+function rightImgGo(){
+    rightImg();
+    changeImg();
 }
