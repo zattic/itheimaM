@@ -166,3 +166,32 @@ img{
 .normalColor{
     background-color:rgba(0, 0,0, 0.5);
 }
+/* 导航栏模块 */
+.hm_nav{
+    width: 100%;
+    background: #fff;
+    border-bottom:1px solid #e0e0e0; 
+}
+.hm_nav>ul{
+    width: 100%;
+    padding: 10px 0;
+}
+.hm_nav>ul>li{
+    width: 25%;
+    float: left;
+}
+.hm_nav>ul>li>a{
+    display: block;
+}
+.hm_nav>ul>li>a>img{
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+}
+.hm_nav>ul>li>a>p{
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+    padding: 6px 0;
+}
