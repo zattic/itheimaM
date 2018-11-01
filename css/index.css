@@ -175,6 +175,8 @@ img{
 .hm_nav>ul{
     width: 100%;
     padding: 10px 0;
+    display: flex;
+    flex-wrap:wrap;
 }
 .hm_nav>ul>li{
     width: 25%;
