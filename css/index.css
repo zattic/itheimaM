@@ -197,3 +197,165 @@ img{
     font-size: 12px;
     padding: 6px 0;
 }
+/* 掌上秒杀 */    
+.new{
+    margin: 2px 3px;
+    width: 100%;
+    float: left;
+    border-style:solid;
+    border-width:1px;
+    border-color: rgb(172, 170, 170);   
+}
+.new >.top_a{      
+    height: 32px;
+    width: 100%;
+    background:#fff;
+    margin-top: 10px;
+    /* box-shadow: 0 0 1px #e0e0e0; */
+}
+.new >.top_a>.num{
+    height: 32px;
+}
+
+.new >.top_a> .num>.top_b{
+    float: left;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    background-position:0 ;
+}
+.new >.top_a> .num>.top_b>img{
+    float: left;
+    width: 32px;
+    height: 32px;
+}
+.new >.top_a>.num>.top_c{
+    margin: 4px;
+    float: left;
+    color: rgb(106, 132, 145);
+}
+.new >.top_a>.num>.top_d{
+    margin: 4px;
+    float: left;
+
+}
+.new >.top_a>.num>.top_d >span{
+    margin: 0 1px;
+    background-color: black;
+    color: #fff;
+}
+.new >.top_a>.num>.top_d >.x{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+.new >.top_a>.num>.top_e{
+    position: relative;
+    left: 55px; 
+}
+.new >.top_a>.num>.top_e a{
+     text-decoration: none;
+}
+.new>.top_a>.en{
+width: 100%;
+
+}
+.new>.top_a>.en >ul {
+width: 100%;
+}
+.new>.top_a>.en >ul .on{
+margin: 5px;
+width: 30%;
+float: left;
+}
+
+.new>.top_a>.en >ul>.on >a >img{
+width:100%;
+}
+.new>.top_a>.en >ul>.on >p:last-of-type{
+    text-decoration: line-through;    /*删除线 */
+    color: #666;
+    padding-top: 5px;
+
+}
+
+/* 组合样式 */
+.w_50{
+width: 50%;
+display: block;
+}
+.w_50>img{
+display: block;
+width: 100%;
+}
+.b_left{
+border-left: 1px solid #e0e0e0;
+}
+.b_right{
+border-right:1px solid #e0e0e0;
+}
+.b_bottom{
+border-bottom: 1px solid #e0e0e0;
+}
+/* 商品子盒子 */
+.to{
+float: left;
+width: 100%;
+margin: 2px 2px;
+border-style:solid;
+border-width:1px;
+border-color: rgb(172, 170, 170);
+
+}
+
+.to>.to_o{
+width: 96%;
+height: 22px;
+margin: 0 2px;
+}
+.to>.to_o > h3{
+margin: 1px 1px 0 10px; 
+
+}
+.to>.to_i{
+margin: 6px;
+width: 95%;
+}
+.to>.to_i>.to_1{
+float: left;
+width: 48%;
+height: 100%;
+border-top: 1px solid #e0e0e0;
+}
+.to>.to_i>.to_1 img{
+padding: 3px;
+width: 50%;
+height: 100%;
+}
+
+.to>.to_i>.to_2{
+border-left: 1px solid #e0e0e0;
+border-top: 1px solid #e0e0e0;
+float: left;
+width: 50%;
+height: 55%;
+}
+.to>.to_i>.to_2 img{
+padding: 3px;
+width: 50%;
+height: 55%;
+}
+
+.to>.to_i>.to_3 {
+border-top: 1px solid #e0e0e0;
+border-left: 1px solid #e0e0e0;
+float: left;
+width: 50%;
+height: 45%;
+
+}
+.to>.to_i>.to_3 img {
+padding: 3px;
+width: 50%;
+height: 45%;
+
+}
