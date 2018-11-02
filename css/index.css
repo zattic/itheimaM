@@ -1,11 +1,11 @@
 .hm_header{
     position: fixed;
     left: 0;
-    top: 0;
+    top: 2;
     height: 40px;
     width: 100%;
     z-index: 1000;
-    background-color: red;
+    /* background-color: red; */
 }
 .hm_header>.hm_header_box{
     width: 100%;
@@ -31,11 +31,11 @@
     background-position: 0 -103px;
 }
 .hm_header>.hm_header_box>.login{
-    width: 50px;
+    width: 220px;
     height: 40px;
     line-height: 40px;
     text-align: center;
-    color: #fff;
+    color: red;
     position: absolute;
     right: 0;
     top: 0;
