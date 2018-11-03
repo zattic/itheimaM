@@ -31,11 +31,11 @@
     background-position: 0 -103px;
 }
 .hm_header>.hm_header_box>.login{
-    width: 220px;
+    width: 50px;
     height: 40px;
     line-height: 40px;
     text-align: center;
-    color: red;
+    color: #fff;
     position: absolute;
     right: 0;
     top: 0;
@@ -73,6 +73,11 @@
 
 }
 /* 轮播图 */
+.hm_banner>.slider>.images{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
 ul{
     list-style: none;
 }
@@ -105,11 +110,11 @@ ul{
 img{
     transition: opacity 1s linear;
     opacity: 1;
-    width: 100%;
-    height: 300px;
+    width: 1700px;
+    /* height: 300px; */
 }
 .slider{
-    width: 1500px;
+    width: 100%;
     height: 300px;
     margin: 0 auto;
     position: relative;
@@ -151,7 +156,7 @@ img{
     height: 40px;
 }
 .txtItem{
-           width: 11.5%;
+           width: 11.6%;
            margin-right:2px ;
            color: #fff;
            text-align: center;
@@ -269,7 +274,7 @@ float: left;
 }
 
 .new>.top_a>.en >ul>.on >a >img{
-width:100%;
+width:50%;
 }
 .new>.top_a>.en >ul>.on >p:last-of-type{
     text-decoration: line-through;    /*删除线 */
