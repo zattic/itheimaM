@@ -1,0 +1,30 @@
+/* 左侧栏 */
+.hm_category_left{
+    width: 90px;
+    height: 100%;
+    overflow: hidden;
+    float: left;
+}
+.hm_category_left>ul{
+     width: 90%;
+    padding: 10px 0; 
+    display: flex;
+    flex-wrap:wrap;
+}
+.hm_category_left>ul>li{
+    width: 90px;
+    height: 40px;
+    text-align: center;
+    line-height: 50px;
+    border-right:1px solid #ccc;
+    border-bottom: 1px solid #ccc; 
+}
+.hm_category_left>ul>li a{
+    display: block;
+}
+.hm_category_left>ul>li.now{
+    border-right:none; 
+}
+.hm_category_left>ul>li.now a{
+    color: #d8505c;
+}
